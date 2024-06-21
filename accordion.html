@@ -1,0 +1,94 @@
+<!-- Accordion Component -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+</head>
+
+<style>
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .accordion {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .accordion-items {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+    }
+
+    .item {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        padding: 10px;
+    }
+
+    button {
+        background-color: black;
+        border: none;
+        font-size: 1rem;
+        padding: 10px;
+        color: white;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+</style>
+
+<script>
+    function showItem(itemNumber) {
+        var item = document.getElementById('item' + itemNumber);
+        const itemStyle = item.style.maxHeight;
+        if (itemStyle === '0px' || itemStyle === '') {
+
+            item.style.maxHeight = '10000px';
+            console.log("showing item number " + itemNumber);
+
+        } else {
+
+            item.style.maxHeight = '0px';
+            console.log("hiding item number " + itemNumber);
+
+        }
+    }
+</script>
+
+<body>
+    <div class="accordion">
+        <ul class="accordion-items">
+            <li>
+                <button onclick="showItem(1)">Show Item Number 1</button>
+                <div id="item1" class="item">
+                    <h3>Item 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed eveniet vero at ab molestiae rem, accusantium, quidem aut quisquam vitae, atque alias mollitia a iste laudantium. Consectetur animi omnis quia perspiciatis natus obcaecati fugit sunt voluptas. Veniam pariatur earum eligendi ipsa illo possimus neque provident beatae laboriosam, voluptate atque dolor.</p>
+                </div>
+            </li>
+            <li>
+                <button onclick="showItem(2)">Show Item Number 2</button>
+                <div id="item2" class="item">
+                    <h3>Item 2</h3>
+                </div>
+            </li>
+            <li>
+                <button onclick="showItem(3)">Show Item Number 3</button>
+                <div id="item3" class="item">
+                    <h3>Item 3</h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
